@@ -1,4 +1,4 @@
-name: helloworld
+name: Hello NTTData Team
 
 on: workflow_dispatch
 
