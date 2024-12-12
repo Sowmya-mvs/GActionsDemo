@@ -42,7 +42,6 @@ jobs:
 
 
 
-
 steps:
       - name: Running a script
         run: |
@@ -52,7 +51,7 @@ steps:
       - name: Checkout local action repository
         uses: actions/checkout@v4
         with:
-          repository: Parul-mahajan/Local-action
+          repository: Sowmya-mvs/Local-action
           path: local-action-repo
       - name: Run Local Action
         uses: ./local-action-repo
