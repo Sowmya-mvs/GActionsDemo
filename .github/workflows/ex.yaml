@@ -37,21 +37,3 @@ jobs:
     uses: Sowmya-mvs/Local-action/.github/workflows/reusable_workflow.yaml@main
     with:
       param1: 'Welcome to GH actions workshop delivery!'
-
-
-
-
-
-steps:
-      - name: Running a script
-        run: |
-          echo "Ran a script in ${{github.ref}} for persona ${{matrix.names}}"
-      - name: Access repository (using actions)
-        uses: actions/checkout@v4
-      - name: Checkout local action repository
-        uses: actions/checkout@v4
-        with:
-          repository: Sowmya-mvs/Local-action
-          path: local-action-repo
-      - name: Run Local Action
-        uses: ./local-action-repo
