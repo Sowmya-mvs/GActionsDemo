@@ -25,7 +25,7 @@ jobs:
       - name: Checkout local action repository
         uses: actions/checkout@v4
         with:
-          repository: sowmya-mvs/Local-action
+          repository: Sowmya-mvs/Local-action
           path: local-action-repo
       - name: Run Local Action
         uses: ./local-action-repo
@@ -34,7 +34,7 @@ jobs:
 
 
     needs: recapping_day_1
-    uses: sowmya-mvs/Local-action/.github/workflows/reusable_workflow.yaml@main
+    uses: Sowmya-mvs/Local-action/.github/workflows/reusable_workflow.yaml@main
     with:
       param1: 'Hi I am ${{matrix.names}}!.Welcome to the GH Actions workshop'
 
