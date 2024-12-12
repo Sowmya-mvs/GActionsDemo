@@ -14,6 +14,7 @@ jobs:
 
     environment: Dev
     strategy:
+    #you can use a matrix strategy to test your code in multiple versions of a language or on multiple operating systems
       matrix: 
         version: [10, 12, 14]
         os: [ubuntu-latest, windows-latest]
