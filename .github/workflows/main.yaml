@@ -1,5 +1,5 @@
 name: demos
-run-name: Sowmyashree is running this Pipeline
+run-name: ${{ github.actor }} is running this Pipeline
 on: push
 
 jobs:
@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Hello-world
-      run: echo "Hello world"
+      run: echo "Latest Code push into the main branch"
