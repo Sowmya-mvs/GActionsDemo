@@ -1,5 +1,5 @@
 name: Day_One_Recap
-run-name: ${{ github.actor }} is recapping day 1
+run-name: ${{ github.actor }} is executing in day 1
 
 on: 
   push: 
