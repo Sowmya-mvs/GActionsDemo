@@ -1,0 +1,39 @@
+name: demo-github-actions
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * *' # Runs every day at midnight
+
+# * * * * *
+# | | | | |
+# | | | | +---- Day of the week (0 - 7) (Sunday is both 0 and 7)
+# | | | +------ Month (1 - 12)
+# | | +-------- Day of the month (1 - 31)
+# | +---------- Hour (0 - 23)
+# +------------ Minute (0 - 59)
+
+jobs:
+  demo-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Display event name
+        run: echo "This workflow was triggered by the event:" ${{ github.event_name }}"
+
+      - name: Display cron schedule
+        run: echo "The cron schedule is:" "* * * * *"
+
+      - name: Display actor
+        run: echo "This workflow was triggered by:" ${{ github.actor }}"
+
+      - name: Display branch or tag
+        run: echo "This workflow is running on the branch or tag:" ${{ github.ref }}"

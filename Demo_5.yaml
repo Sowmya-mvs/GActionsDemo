@@ -1,0 +1,83 @@
+name: Comprehensive Demo
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+  build:
+    needs: setup
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.ref }}
+      cancel-in-progress: true
+    timeout-minutes: 30
+    container:
+      image: node:14
+    steps:
+      - name: Install dependencies
+        run: npm install
+      - name: Run build
+        run: npm run build
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run tests
+        run: npm test
+        continue-on-error: true
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://example.com
+    steps:
+      - name: Deploy to production
+        if: github.ref == 'refs/heads/main'
+        run: echo "Deploying to production"
+
+  service-job:
+    needs: setup
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:13
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_DB: mydb
+          POSTGRES_USER: user
+          POSTGRES_PASSWORD: password
+    steps:
+      - name: Run database migrations
+        run: echo "Running migrations"
+
+  string-operations:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if branch starts with "feature/"
+        if: startsWith(github.ref, 'refs/heads/feature/')
+        run: echo "Feature branch detected."
+      - name: Check if commit message contains "important"
+        if: contains(github.event.head_commit.message, 'important')
+        run: echo "Commit message contains 'important'."
+      - name: Convert event to JSON
+        id: json
+        run: echo "::set-output name=json::$(echo '${{ toJson(github.event) }}')"
+      - name: Print JSON
+        run: echo "${{ steps.json.outputs.json }}"

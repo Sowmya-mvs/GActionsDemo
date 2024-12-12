@@ -1,0 +1,37 @@
+name: demo-github-actions
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ubuntu-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run on Ubuntu
+        run: echo "This job is running on an Ubuntu runner"
+
+  windows-job:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run on Windows
+        run: echo "This job is running on a Windows runner"
+
+  self-hosted-job:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run on Self-Hosted
+        run: echo "This job is running on a self-hosted runner"
