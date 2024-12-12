@@ -1,6 +1,9 @@
 name: PAT Token Usage Demo
 
-on: [push]
+on: 
+  push: 
+    branches:
+      - main
 
 jobs:
   example-job:
