@@ -1,5 +1,5 @@
-name: Day_One_Demo
-run-name: ${{ github.actor }} is performing day 1 demo
+name: Welcome_to_GH_Actions_Workshop_Delivery
+run-name: ${{ github.actor }} is Performing day 1
 on: 
   push: 
     branches:
@@ -36,8 +36,13 @@ jobs:
     needs: recapping_day_1
     uses: Sowmya-mvs/Local-action/.github/workflows/reusable_workflow.yaml@main
     with:
-      param1: 'Hi I am Sowmya!.Welcome to the GH Actions workshop'
-      
+      param1: 'Welcome to GH actions workshop delivery!'
+
+
+
+
+
+
 steps:
       - name: Running a script
         run: |
@@ -51,6 +56,3 @@ steps:
           path: local-action-repo
       - name: Run Local Action
         uses: ./local-action-repo
-
-
-
