@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: say hello
-        run: echo "Hello world"
+        run: echo "Hello NTTData Team-Welcome to GitHubActions Workshop"
 
       
   
