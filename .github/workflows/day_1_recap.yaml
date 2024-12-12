@@ -15,7 +15,7 @@ jobs:
     environment: Dev
     strategy:
       matrix: 
-        names: [john, doe, persona]
+        names: [Roopa, Shilpa, Vidya]
     steps:
       - name: Running a script
         run: echo "Ran a script in ${{ github.ref }} for persona ${{ matrix.names }}"
@@ -24,13 +24,13 @@ jobs:
       - name: Checkout local action repository
         uses: actions/checkout@v4
         with:
-          repository: Parul-mahajan/Local-action
+          repository: sowmya-mvs/Local-action
           path: local-action-repo
       - name: Run Local Action
         uses: ./local-action-repo
 
   using_reusable_template:
     needs: recapping_day_1
-    uses: Parul-mahajan/Local-action/.github/workflows/reusable_workflow.yaml@main
+    uses: sowmya-mvs/Local-action/.github/workflows/reusable_workflow.yaml@main
     with:
       param1: 'Hello, world!'
