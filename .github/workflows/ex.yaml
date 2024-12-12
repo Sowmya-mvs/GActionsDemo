@@ -15,7 +15,8 @@ jobs:
     environment: Dev
     strategy:
       matrix: 
-        names: [ Srihaan,Srinaya ]
+        version: [10, 12, 14]
+        os: [ubuntu-latest, windows-latest]
     steps:
       - name: Running a script
         run: |
