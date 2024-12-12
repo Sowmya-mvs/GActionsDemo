@@ -15,7 +15,7 @@ jobs:
     environment: Prod
     strategy:
       matrix: 
-        names: [john, doe, persona]
+        names: [Vidya,Srinaya]
     steps:
       - name: Running a script
         run: echo "Ran a script in ${{ github.ref }} for persona ${{ matrix.names }} , variable ${{secrets.DAY}}, secret ${{secrets.DATE}}"
