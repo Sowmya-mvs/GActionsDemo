@@ -1,0 +1,32 @@
+# Manual workflow trigger with variablessss
+
+name: Manual workflow
+on:
+  workflow_dispatch: 
+    inputs:
+      username:       
+        description: 'provide username'    
+        default: 'Sowmya'    
+        required: true      
+        type: string
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "greet"
+  greet:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Runs a single command using the runners shell
+    - name: Send greeting
+      run: echo "Hello ${{ inputs.name }}"
+      
+    - name: OutputRunIDrun:echo${{github.run_id}}
+      run: echo "RunId ${{ github.run_id }}"
+
+    - name: OutputRunNumberrun:echo${{github.run_number}}
+      run: echo "Run# ${{ github.run_number }}"
+    - name: OutputRunAttemptrun:echo${{github.run_attempt}}
+      run: echo "RunAttempt ${{ github.run_attempt }}"
