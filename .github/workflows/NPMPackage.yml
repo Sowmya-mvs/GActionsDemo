@@ -19,7 +19,8 @@ jobs:
 
       - name: Install NPM packages
         run: |
-          cd GActionsDemo/package.json # Navigate to the directory containing package.json
+          mkdir GActionsDemo/package.json # Navigate to the directory containing package.json
+          cd GActionsDemo/package.json
           npm install   
 
       - name: Run tests
