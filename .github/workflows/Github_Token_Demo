@@ -1,6 +1,8 @@
 name: PAT Token Usage Demo
 
-on: workflow_dispatch
+push: 
+    branches:
+      - main
 
 jobs:
   example-job:
