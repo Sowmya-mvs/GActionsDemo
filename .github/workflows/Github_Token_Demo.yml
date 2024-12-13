@@ -15,7 +15,8 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Install GH CLI
-      
+      uses: dev-hanz-ops/install-gh-cli-action@v0.2.0
+         
     - name: Create a pull request
       run: gh pr create --title "Automated PR" --body "This is an automated PR."
       env:
