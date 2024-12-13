@@ -13,6 +13,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+
+    - name: Install GH CLI
+      
     - name: Create a pull request
       run: gh pr create --title "Automated PR" --body "This is an automated PR."
       env:
