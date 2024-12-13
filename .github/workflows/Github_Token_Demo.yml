@@ -23,4 +23,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: say hello
-      run: echo "PAT Token value is ${{ env.PAT_TOKEN }}"    
+  
+      env:
+        PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+
+      run: echo "PAT Token value is "$PAT_TOKEN" "  
+      
