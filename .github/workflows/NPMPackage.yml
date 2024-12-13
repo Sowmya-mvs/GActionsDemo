@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - feature/US15
-  pull_request:
-    branches:
-      - main
-
 jobs:
   build:
     runs-on: windows-latest
