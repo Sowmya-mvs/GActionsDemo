@@ -1,0 +1,28 @@
+name: NPMPackage
+
+on:
+  push:
+    branches:
+      - feature/US15
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16' # specify the version of Node.js you need
+
+      - name: Install NPM packages
+        run: npm install
+
+      - name: Run tests
+        run: npm test # or other script as needed
