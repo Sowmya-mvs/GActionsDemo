@@ -27,5 +27,5 @@ jobs:
       env:
         PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
 
-      run: echo "PAT Token value is "$PAT_TOKEN" "  
+      run: echo "PAT Token value is $PAT_TOKEN "  
       
