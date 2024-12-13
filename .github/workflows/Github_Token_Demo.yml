@@ -1,4 +1,4 @@
-name: PAT Token Usage Demo
+name: GitHub Token Usage Demo
 
 on:
   workflow_dispatch: 
@@ -23,4 +23,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: say hello
-      run: echo "PAT Token value is ${{ secrets.PAT_TOKEN }}"    
+      run: echo "PAT Token value is ${{ env.PAT_TOKEN }}"    
