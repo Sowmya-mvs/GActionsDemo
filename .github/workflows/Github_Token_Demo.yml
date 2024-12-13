@@ -4,7 +4,7 @@ on:
   workflow_dispatch: 
 
 jobs:
-  example-job:
+  github-token-usage-job:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -20,12 +20,4 @@ jobs:
     - name: Create a pull request
       run: gh pr create --title "Automated PR" --body "This is an automated PR creation."
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: say hello
-  
-      env:
-        PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
-
-      run: echo "PAT Token value is $PAT_TOKEN "  
-      
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
