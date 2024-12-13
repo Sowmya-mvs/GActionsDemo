@@ -20,7 +20,7 @@ jobs:
     - name: Create a pull request
       run: gh pr create --title "Automated PR" --body "This is an automated PR."
       env:
-        GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: say hello
       run: echo "PAT Token is ${{ secrets.PAT_TOKEN }}"    
