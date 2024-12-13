@@ -1,6 +1,9 @@
 name: Hello NTTData Team
 
-on: workflow_dispatch
+on: 
+  push: 
+    branches:
+      - feature/US15
 
 jobs:
   hello:

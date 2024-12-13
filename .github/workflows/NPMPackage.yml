@@ -1,0 +1,33 @@
+name: NPMPackage
+
+on:
+  push:
+    branches:
+      - feature/US15
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16' # specify the version of Node.js you need
+
+      - name: Install NPM packages
+        run: |
+          mkdir GActionsDemo/package.json # Navigate to the directory containing package.json
+          cd GActionsDemo/package.json
+          npm install   
+
+      - name: Run tests
+        run: |
+          cd GActionsDemo/package.json # Ensure you are in the correct directory if running tests
+       
+
+
+
+      
